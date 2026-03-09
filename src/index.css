@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0f0f14;
+    color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  ion-app {
+    background: #0f0f14;
+    color: #f1f1f1;
+  }
+
+  ion-content {
+    --background: #0f0f14;
+  }
+
+  /* Prevent horizontal scroll globally */
+  body {
+    overscroll-behavior-x: none;
+  }
+
+  /* Smooth scrolling */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Remove number input arrows */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  /* === BUTTONS === */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    min-height: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 14px;
+    color: white;
+    background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+    border: none;
+    box-shadow: 0 4px 20px rgba(153,69,255,0.35);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    color: #d1d5db;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-secondary:active {
+    transform: scale(0.95);
+    background: rgba(255,255,255,0.1);
+  }
+
+  .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-weight: 500;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(239,68,68,0.3);
+  }
+  .btn-danger:active { transform: scale(0.95); }
+
+  .btn-success {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-weight: 500;
+    border-radius: 12px;
+    color: #0f0f14;
+    background: linear-gradient(135deg, #14F195, #059669);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(20,241,149,0.3);
+  }
+  .btn-success:active { transform: scale(0.95); }
+
+  /* === CARDS === */
+  .card {
+    background: #1a1b23;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  .card-glass {
+    background: rgba(26,27,35,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  /* === INPUTS === */
+  .input-field {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: #f1f1f1;
+    outline: none;
+    transition: all 0.2s;
+    min-height: 52px;
+  }
+  .input-field::placeholder {
+    color: rgba(156,163,175,0.5);
+  }
+  .input-field:focus {
+    border-color: rgba(153,69,255,0.6);
+    box-shadow: 0 0 0 3px rgba(153,69,255,0.15);
+    background: rgba(153,69,255,0.06);
+  }
+
+  .label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #9ca3af;
+    margin-bottom: 6px;
+    display: block;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* === GRADIENT TEXT === */
+  .gradient-text {
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* === SOLANA WALLET BUTTON OVERRIDE === */
+  .wallet-btn-wrapper .wallet-adapter-button {
+    background: linear-gradient(135deg, #9945FF 0%, #14F195 100%) !important;
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    min-height: 48px !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 4px 20px rgba(153,69,255,0.35) !important;
+    transition: transform 0.15s, box-shadow 0.15s !important;
+  }
+  .wallet-btn-wrapper .wallet-adapter-button:active {
+    transform: scale(0.96) !important;
+  }
+
+  /* === PAGE TRANSITIONS === */
+  .page-enter {
+    animation: fadeSlideIn 0.25s ease-out;
+  }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === SKELETON === */
+  .skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 10px;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* === SCROLLBAR === */
+  ::-webkit-scrollbar { width: 0px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(153,69,255,0.3); border-radius: 4px; }
+}
